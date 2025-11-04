@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <title>Pilares de Portugal</title>
+  <script>
+    // GitHub Pages SPA redirect hack
+    // Store the current path in sessionStorage and redirect to index.html
+    sessionStorage.redirect = location.href;
+    location.replace(location.origin + location.pathname.split('/').slice(0, -1).join('/') + '/');
+  </script>
+</head>
+<body>
+</body>
+</html>
