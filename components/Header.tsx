@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ sections, activeSection, handleNavigate
           className={`text-xl font-bold transition-colors ${isScrolled ? 'text-gray-800' : 'text-white'}`}
           onClick={(e) => handleNavigate(e, '/')}
         >
-          Pilares de Portugal
+          Mais Imigração: Portugal
         </a>
         <div className="hidden md:flex space-x-6">
           {sections.map((section) => (
