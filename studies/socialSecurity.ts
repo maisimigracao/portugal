@@ -1,7 +1,7 @@
 import ContributionChart from '@/components/charts/ContributionChart';
 import { sections } from '../constants';
 
-const [socialSecurity] = sections;
+const [socialSecurity, laborMarket, publicSafety, demographics] = sections;
 
 export const socialContent: any = {
     ...socialSecurity,

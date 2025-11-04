@@ -1,7 +1,7 @@
 import PopulationCrimeChart from '@/components/charts/PopulationCrimeChart';
 import { sections } from '../constants';
 
-const [publicSafety] = sections;
+const [socialSecurity, laborMarket, publicSafety, demographics] = sections;
 
 export const safetyContent: any = {
     ...publicSafety,

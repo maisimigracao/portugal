@@ -1,7 +1,7 @@
 import { sections } from '../constants';
 import BirthsChart from '@/components/charts/BirthsChart';
 
-const [demographics] = sections;
+const [socialSecurity, laborMarket, publicSafety, demographics] = sections;
 
 export const demographicsContent: any = {
     ...demographics,

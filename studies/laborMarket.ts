@@ -1,7 +1,7 @@
 import { sections } from '../constants';
 import UnemploymentChart from '@/components/charts/UnemploymentChart';
 
-const [laborMarket] = sections;
+const [socialSecurity, laborMarket, publicSafety, demographics] = sections;
 
 export const laborContent: any = {
     ...laborMarket,
