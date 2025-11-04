@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import StudyPage from './pages/StudyPage';
+import ScrollToTop from './components/ScrollToTop';
 import { sections } from './constants';
 
 function App() {
   return (
     <BrowserRouter basename="/portugal">
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         {sections.map((section) => (

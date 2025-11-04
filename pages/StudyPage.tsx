@@ -138,15 +138,26 @@ const StudyPage: React.FC<StudyPageProps> = ({ studyId: propStudyId }) => {
   let studyId = propStudyId || params.studyId || '';
   if (!studyId && typeof window !== 'undefined') {
     const pathParts = window.location.pathname.split('/').filter(Boolean);
-    if (pathParts[0] === 'study' && pathParts[1]) {
-      studyId = pathParts[1];
+    // Considera o basename "/portugal" - procura por "study" em qualquer posição
+    const studyIndex = pathParts.indexOf('study');
+    if (studyIndex !== -1 && pathParts[studyIndex + 1]) {
+      studyId = pathParts[studyIndex + 1];
     }
   }
   
   const details = studyDetails[studyId];
 
   if (!details) {
-    return <div>Estudo não encontrado. StudyId: {studyId}</div>;
+    console.log('Debug - studyId:', studyId);
+    console.log('Debug - available keys:', Object.keys(studyDetails));
+    console.log('Debug - pathname:', typeof window !== 'undefined' ? window.location.pathname : 'SSR');
+    return (
+      <div className="p-8">
+        <h1 className="text-2xl font-bold mb-4">Estudo não encontrado</h1>
+        <p>StudyId: {studyId}</p>
+        <p>Available IDs: {Object.keys(studyDetails).join(', ')}</p>
+      </div>
+    );
   }
 
   const { title, summary, icon: Icon, stats, chart: Chart, detailedContent } = details;
