@@ -7,7 +7,7 @@ import { sections } from './constants';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/portugal">
       <Routes>
         <Route path="/" element={<HomePage />} />
         {sections.map((section) => (

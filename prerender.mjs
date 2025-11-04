@@ -38,7 +38,7 @@ async function prerender() {
     console.log(`📄 Rendering ${route}...`);
     
     const page = await browser.newPage();
-    const url = `http://localhost:${port}${route}`;
+    const url = `http://localhost:${port}/portugal${route}`;
     
     try {
       await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
