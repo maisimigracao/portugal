@@ -89,7 +89,7 @@ const App: React.FC = () => {
 
   const renderSectionContent = (section: SectionData) => {
     const button = (
-       <div className="mt-12 text-center">
+       <div className="mt-24 md:mt-12 text-center">
         <a 
           href={`/study/${section.id}`} 
           onClick={(e) => handleNavigate(e, `/study/${section.id}`)}
