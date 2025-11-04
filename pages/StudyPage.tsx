@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { studyDetails } from '../studyDetails';
 import { sections } from '../constants';
 import Header from '../components/Header';
@@ -12,8 +13,7 @@ import TableOfContents from '../components/TableOfContents';
 import { ContentBlock, TableData, CalloutData, QuoteData, ChartConfig } from '../types';
 
 interface StudyPageProps {
-  studyId: string;
-  handleNavigate: (e: React.MouseEvent<HTMLAnchorElement>, path: string) => void;
+  studyId?: string;
 }
 
 const Table: React.FC<{ data: TableData }> = ({ data }) => (
@@ -130,14 +130,31 @@ const renderContentBlock = (block: ContentBlock, index: number) => {
   }
 };
 
-const StudyPage: React.FC<StudyPageProps> = ({ studyId, handleNavigate }) => {
+const StudyPage: React.FC<StudyPageProps> = ({ studyId: propStudyId }) => {
+  const params = useParams<{ studyId: string }>();
+  const navigate = useNavigate();
+  
+  // Fallback para extrair studyId da URL se useParams falhar (durante SSR/prerender)
+  let studyId = propStudyId || params.studyId || '';
+  if (!studyId && typeof window !== 'undefined') {
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    if (pathParts[0] === 'study' && pathParts[1]) {
+      studyId = pathParts[1];
+    }
+  }
+  
   const details = studyDetails[studyId];
 
   if (!details) {
-    return <div>Estudo não encontrado.</div>;
+    return <div>Estudo não encontrado. StudyId: {studyId}</div>;
   }
 
   const { title, summary, icon: Icon, stats, chart: Chart, detailedContent } = details;
+
+  const handleNavigate = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    navigate(path);
+  };
 
   // Extract sections for table of contents
   const tocSections = useMemo(() => {
