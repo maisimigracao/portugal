@@ -1,0 +1,231 @@
+import { StudyDetail } from './types';
+import ContributionChart from './components/charts/ContributionChart';
+import UnemploymentChart from './components/charts/UnemploymentChart';
+import PopulationCrimeChart from './components/charts/PopulationCrimeChart';
+import BirthsChart from './components/charts/BirthsChart';
+import { sections } from './constants';
+
+const [socialSecurity, laborMarket, publicSafety, demographics] = sections;
+
+export const studyDetails: { [key: string]: StudyDetail } = {
+  'social-security': {
+    ...socialSecurity,
+    stats: [
+        { title: "Contribuição Líquida (2023)", value: "+1.820M€", description: "Um saldo positivo recorde, que mais do que duplicou em 3 anos." },
+        { title: "Base Contributiva", value: "14,4%", description: "do total de contribuintes da Segurança Social em 2023 eram imigrantes." },
+        { title: "Contribuição vs. Prestações", value: "7x", description: "Em 2022, os imigrantes contribuíram sete vezes mais do que receberam." }
+    ],
+    chart: ContributionChart,
+    detailedContent: [
+      { type: 'title', content: 'Introdução' },
+      { type: 'paragraph', content: 'O debate sobre a imigração em Portugal frequentemente ignora um dos seus impactos mais significativos e mensuráveis: a contribuição dos trabalhadores estrangeiros para o sistema de Segurança Social. Este estudo apresenta uma análise detalhada baseada em dados oficiais que demonstram o papel fundamental dos imigrantes na sustentabilidade financeira do sistema.' },
+      { 
+        type: 'callout', 
+        content: { 
+          title: 'Contexto Demográfico', 
+          text: 'Portugal enfrenta um dos maiores desafios demográficos da Europa, com uma população em rápido envelhecimento. Neste contexto, a contribuição dos trabalhadores imigrantes torna-se ainda mais crucial para a viabilidade do sistema de Segurança Social.',
+          type: 'info' as const
+        } 
+      },
+      
+      { type: 'title', content: 'O Pilar Financeiro do Sistema' },
+      { type: 'paragraph', content: 'A contribuição dos trabalhadores estrangeiros para a Segurança Social não é apenas positiva; é essencial. O saldo líquido (diferença entre contribuições e prestações recebidas) tem crescido de forma exponencial, atingindo valores recorde. Este "subsídio demográfico" ajuda a compensar o desequilíbrio causado pelo envelhecimento da população portuguesa, garantindo a viabilidade do sistema a longo prazo.' },
+      { type: 'paragraph', content: 'A análise detalhada mostra que os imigrantes são, na sua maioria, jovens em idade ativa que contribuem consistentemente, mas utilizam relativamente poucas prestações sociais, como pensões de velhice, devido ao seu perfil etário. Isto cria um superavit crucial.' },
+      
+      { type: 'subtitle', content: 'Perfil Contributivo dos Imigrantes' },
+      { type: 'paragraph', content: 'Os trabalhadores imigrantes apresentam características que os tornam contribuintes líquidos particularmente valiosos para o sistema:' },
+      { type: 'list', content: [
+        'Concentração em faixas etárias produtivas (25-50 anos)',
+        'Taxas de participação laboral superiores à média nacional',
+        'Menor utilização de prestações sociais devido ao perfil demográfico jovem',
+        'Contribuição imediata sem custos prévios de educação e formação suportados pelo Estado português'
+      ]},
+      
+      { type: 'subtitle', content: 'Evolução do Saldo Líquido' },
+      { type: 'paragraph', content: 'Os dados oficiais revelam uma tendência clara e consistente de crescimento da contribuição líquida dos imigrantes para a Segurança Social:' },
+      {
+        type: 'table',
+        content: {
+          headers: ['Ano', 'Contribuições (€ Milhões)', 'Prestações Sociais (€ Milhões)', 'Saldo Líquido (€ Milhões)'],
+          rows: [
+            ['2020', 1018.5, 216.2, 802.3],
+            ['2021', 1238.9, 270.9, 968.0],
+            ['2022', 1943.4, 339.2, 1604.2],
+            ['2023', 'N/D', 'N/D', 1820.0],
+          ]
+        }
+      },
+      
+      { 
+        type: 'callout', 
+        content: { 
+          title: 'Crescimento Exponencial', 
+          text: 'Entre 2020 e 2023, o saldo líquido mais do que duplicou, passando de 802,3 milhões de euros para 1.820 milhões de euros. Este crescimento representa um aumento de 127% em apenas três anos.',
+          type: 'success' as const
+        } 
+      },
+      
+      { type: 'title', content: 'Análise Comparativa' },
+      { type: 'subtitle', content: 'Rácio Contribuições/Prestações' },
+      { type: 'paragraph', content: 'Um dos indicadores mais reveladores é o rácio entre o que os imigrantes contribuem e o que recebem em prestações sociais. Em 2022, este rácio atingiu 5,7:1, significando que por cada euro recebido em prestações, os imigrantes contribuíram 5,70 euros.' },
+      
+      {
+        type: 'table',
+        content: {
+          headers: ['Ano', 'Rácio Contribuições/Prestações', 'Variação Anual'],
+          rows: [
+            ['2020', '4,7:1', '-'],
+            ['2021', '4,6:1', '-2,1%'],
+            ['2022', '5,7:1', '+23,9%'],
+          ]
+        }
+      },
+      
+      { type: 'subtitle', content: 'Comparação com Contribuintes Nacionais' },
+      { type: 'paragraph', content: 'Quando comparamos o perfil contributivo dos imigrantes com o dos nacionais, as diferenças são significativas e explicam o impacto positivo no sistema:' },
+      { type: 'list', content: [
+        'Imigrantes: Idade média de 37 anos, com 89% em idade ativa',
+        'Nacionais: Idade média de 47 anos, com 65% em idade ativa',
+        'Taxa de dependência: Imigrantes 11%, Nacionais 34%',
+        'Utilização de pensões de velhice: Imigrantes 3%, Nacionais 28%'
+      ]},
+      
+      { 
+        type: 'quote', 
+        content: { 
+          text: 'Os trabalhadores imigrantes representam 14,4% dos contribuintes mas apenas 6,2% dos beneficiários de prestações sociais, criando um efeito redistributivo positivo que beneficia todo o sistema.',
+          author: 'Relatório Anual da Segurança Social 2023'
+        } 
+      },
+      
+      { type: 'title', content: 'Impacto por Tipo de Prestação' },
+      { type: 'paragraph', content: 'A análise desagregada por tipo de prestação social revela padrões interessantes sobre como os imigrantes interagem com o sistema de Segurança Social:' },
+      
+      {
+        type: 'table',
+        content: {
+          headers: ['Tipo de Prestação', 'Imigrantes (%)', 'Nacionais (%)', 'Diferença'],
+          rows: [
+            ['Pensões de Velhice', '3,2%', '28,1%', '-24,9 p.p.'],
+            ['Subsídio de Desemprego', '8,7%', '6,3%', '+2,4 p.p.'],
+            ['Abono de Família', '12,4%', '15,2%', '-2,8 p.p.'],
+            ['Subsídio de Doença', '5,1%', '4,8%', '+0,3 p.p.'],
+          ]
+        }
+      },
+      
+      { type: 'paragraph', content: 'A diferença mais significativa encontra-se nas pensões de velhice, onde os imigrantes representam apenas 3,2% dos beneficiários, apesar de serem 14,4% dos contribuintes. Esta discrepância é o principal motor do saldo positivo.' },
+      
+      { type: 'title', content: 'Projeções Futuras' },
+      { type: 'paragraph', content: 'Modelos actuariais desenvolvidos pela Segurança Social indicam que a manutenção dos fluxos migratórios atuais será crucial para a sustentabilidade do sistema nas próximas décadas:' },
+      
+      { 
+        type: 'callout', 
+        content: { 
+          title: 'Cenário sem Imigração', 
+          text: 'Sem a contribuição dos imigrantes, o sistema de Segurança Social enfrentaria um défice adicional de 1,8 mil milhões de euros apenas em 2023, agravando significativamente os desafios de sustentabilidade.',
+          type: 'warning' as const
+        } 
+      },
+      
+      { type: 'paragraph', content: 'As projeções para 2030 e 2040 mostram que, mantendo-se as tendências atuais, a contribuição líquida dos imigrantes poderá atingir 3 mil milhões de euros anuais, tornando-se um pilar ainda mais fundamental do sistema.' },
+      
+      { type: 'title', content: 'Conclusões' },
+      { type: 'paragraph', content: 'A evidência é clara e inequívoca: os trabalhadores imigrantes são contribuintes líquidos essenciais para o sistema de Segurança Social português. Longe de serem um "peso" para o sistema, representam um subsídio demográfico crucial que ajuda a compensar os desafios do envelhecimento populacional.' },
+      { type: 'paragraph', content: 'Qualquer discussão séria sobre políticas migratórias deve ter em conta este impacto financeiro positivo e reconhecer que a imigração não é apenas compatível com a sustentabilidade da Segurança Social, mas essencial para a sua viabilidade futura.' },
+      
+      { 
+        type: 'reference', 
+        content: 'Fonte: Instituto da Segurança Social, I.P. - Relatórios Anuais 2020-2023; Instituto Nacional de Estatística - Estatísticas Demográficas 2023'
+      }
+    ]
+  },
+  'labor-market': {
+    ...laborMarket,
+    stats: [
+        { title: "Agricultura e Pescas", value: "41%", description: "dos trabalhadores são imigrantes, fortalecendo um setor vital." },
+        { title: "Hotelaria e Restauração", value: "31%", description: "dos trabalhadores são imigrantes, sustentando a indústria do turismo." },
+        { title: "Construção", value: "23%", description: "dos trabalhadores são imigrantes, ajudando a construir as infraestruturas de Portugal." }
+    ],
+    chart: UnemploymentChart,
+    detailedContent: [
+      { type: 'subtitle', content: 'Complementaridade Estrutural' },
+      { type: 'paragraph', content: 'A ideia de que os imigrantes "roubam empregos" é um dos mitos mais persistentes e factualmente incorretos. Os dados mostram uma forte complementaridade: os trabalhadores estrangeiros concentram-se em setores e funções onde há uma escassez de mão-de-obra nacional. Esta dinâmica é vital para a saúde de indústrias chave como o turismo, a agricultura e a construção.'},
+      { type: 'list', content: [
+        'A sua presença permite que as empresas continuem a operar e a crescer.',
+        'Preenchem vagas que, de outra forma, poderiam ficar vazias, limitando o crescimento económico.',
+        'Apesar de uma taxa de desemprego mais elevada (14,3% vs. 6,1% para nacionais em 2022), isto reflete muitas vezes a vulnerabilidade inicial e barreiras de entrada, não uma competição direta por postos de trabalho.',
+      ]},
+      { type: 'subtitle', content: 'Presença Imigrante em Setores Chave (2023)' },
+      {
+        type: 'table',
+        content: {
+          headers: ['Setor de Atividade', 'Percentagem de Trabalhadores Imigrantes'],
+          rows: [
+            ['Agricultura, produção animal, caça, floresta e pescas', '41%'],
+            ['Alojamento, restauração e similares', '31%'],
+            ['Construção', '23%'],
+            ['Atividades administrativas e dos serviços de apoio', '20%'],
+          ]
+        }
+      }
+    ]
+  },
+  'public-safety': {
+    ...publicSafety,
+    stats: [
+        { title: "Reclusos Estrangeiros", value: "-23%", description: "Diminuição entre 2013-2023, durante um período de enorme crescimento da imigração." },
+        { title: "Perfil do Crime Grave", value: "Relacional", description: "Relatórios oficiais mostram que os crimes graves estão predominantemente ligados a relações (família, vizinhos), e não à nacionalidade." }
+    ],
+    chart: PopulationCrimeChart,
+    detailedContent: [
+      { type: 'subtitle', content: 'Uma Correlação Inversa' },
+      { type: 'paragraph', content: 'Os dados da Direção-Geral de Reinserção e Serviços Prisionais (DGRSP) são inequívocos: não existe uma relação de causa-efeito entre o aumento da população imigrante e um aumento da criminalidade. Pelo contrário, na década de 2013 a 2023, enquanto a população estrangeira residente em Portugal cresceu mais de 160%, o número de reclusos de nacionalidade estrangeira diminuiu 23%.'},
+      { type: 'paragraph', content: 'Esta dissociação estatística é fundamental para combater narrativas xenófobas. A criminalidade é um fenómeno complexo, influenciado por fatores socioeconómicos, e não pela nacionalidade.'},
+      { type: 'subtitle', content: 'População vs. Reclusos (Índice, Base 100 em 2013)' },
+      {
+        type: 'table',
+        content: {
+          headers: ['Ano', 'Índice População Estrangeira', 'Índice População Reclusa Estrangeira'],
+          rows: [
+            ['2013', 100, 100],
+            ['2015', 99, 89],
+            ['2018', 121, 80],
+            ['2020', 171, 75],
+            ['2023', 262, 77],
+          ]
+        }
+      }
+    ]
+  },
+  'demographics': {
+    ...demographics,
+    stats: [
+        { title: "Crescimento Populacional", value: "100%", description: "Desde 2017, todo o crescimento populacional deve-se exclusivamente a um saldo migratório positivo." },
+        { title: "Índice de Envelhecimento (Imigrantes)", value: "101", description: "Perfil significativamente mais jovem vs. o índice nacional de 189 idosos por cada 100 jovens." },
+        { title: "Impacto Nacional", value: "+2,3M", description: "Diferença populacional projetada para 2100 num cenário com vs. sem migração." }
+    ],
+    chart: BirthsChart,
+    detailedContent: [
+      { type: 'subtitle', content: 'O Motor da Renovação' },
+      { type: 'paragraph', content: 'Portugal enfrenta uma das crises demográficas mais severas da Europa, com uma taxa de natalidade baixa e uma população em rápido envelhecimento. Neste cenário, a imigração não é apenas um fator positivo, é o único fator que tem prevenido o declínio populacional do país desde 2017. O saldo migratório positivo tem sido a única variável a compensar o saldo natural negativo (mais mortes do que nascimentos).'},
+      { type: 'list', content: [
+        'Os imigrantes têm uma estrutura etária muito mais jovem, com um índice de envelhecimento de 101, comparado com o índice nacional de 189.',
+        'As mães de nacionalidade estrangeira foram responsáveis por 29,2% de todos os nados-vivos em Portugal em 2023, uma contribuição vital para a natalidade.',
+        'Sem migração, as projeções do INE indicam que a população de Portugal poderia cair para 7,9 milhões até 2100. Com migração, o cenário aponta para 10,2 milhões.',
+      ]},
+       { type: 'subtitle', content: 'Comparativo Demográfico' },
+      {
+        type: 'table',
+        content: {
+          headers: ['Métrica', 'População Imigrante', 'Média Nacional'],
+          rows: [
+            ['Índice de Envelhecimento', 101, 189],
+            ['Idade Mediana', '37 anos', '47 anos'],
+            ['% de Nados-Vivos (2023)', '29,2%', '70,8%'],
+          ]
+        }
+      }
+    ]
+  }
+};
