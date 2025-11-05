@@ -50,7 +50,7 @@ export const demographicsContent: any = {
   { type: 'paragraph', content: 'Esta solução transfere o ónus do envelhecimento do Estado (risco fiscal) para o indivíduo (risco de pobreza na velhice), ao mesmo tempo que uma nova fatura fiscal emerge. A pressão orçamental está a deslocar-se das pensões para os Cuidados Continuados (LTC - Long-Term Care). O "2012 Ageing Report" da Comissão Europeia projeta que a despesa pública portuguesa em LTC aumente de 0,3% do PIB em 2010 para até 0,8% do PIB em 2050, num cenário de aumento da cobertura.⁷' },
   
   { type: 'title', content: 'II. A Imigração como Variável Crítica: Validação da sua Necessidade Demográfica, Laboral e Fiscal' },
-  { type: 'paragraph', content: 'A consulta solicita a validação da narrativa de que os imigrantes são necessários para a continuidade do país. Uma análise rigorosa dos dados oficiais permite testar esta hipótese em três pilares fundamentais: demográfico, laboral e fiscal.' },
+  { type: 'paragraph', content: 'Uma análise rigorosa dos dados oficiais permite testar a hipótese de que "os imigrantes são necessários para a continuidade do país" em três pilares fundamentais: demográfico, laboral e fiscal.' },
   
   { type: 'subtitle', content: 'Pilar 1: A Necessidade Demográfica (O Motor de População e Fecundidade)' },
   { type: 'paragraph', content: 'A contribuição demográfica da imigração não é apenas importante; é, atualmente, o único fator que impede o declínio populacional de Portugal.' },
@@ -131,7 +131,7 @@ export const demographicsContent: any = {
   { type: 'paragraph', content: 'Transportado para o PIB, o estudo calculou que a carga fiscal atual, a rondar 35% do PIB, teria de aumentar para 43% do PIB para compensar a ausência de contribuintes imigrantes.²² A "narrativa" da necessidade económica é, portanto, factualmente validada: os trabalhadores imigrantes permitem, na prática, uma carga fiscal mais baixa sobre os trabalhadores nacionais.' },
   
   { type: 'title', content: 'III. Simulação de um Cenário de "Portas Fechadas": Consequências da Imigração Zero' },
-  { type: 'paragraph', content: 'A consulta solicita um exercício contrafactual: delinear as consequências de um encerramento total à imigração. Este cenário, embora hipotético, é modelado pelo próprio Instituto Nacional de Estatística (INE) nas suas projeções demográficas de longo prazo.' },
+  { type: 'paragraph', content: 'Há ainda um exercício contrafactual: delinear as consequências de um encerramento total à imigração. Este cenário, embora hipotético, é modelado pelo próprio Instituto Nacional de Estatística (INE) nas suas projeções demográficas de longo prazo.' },
   
   { type: 'subtitle', content: 'Impacto Demográfico: O Cenário "Sem Migrações" do INE' },
   { type: 'paragraph', content: 'O INE disponibiliza um cenário "Sem Migrações", que assume a inexistência de fluxos migratórios internacionais, permitindo avaliar a influência desta componente.²³ Os resultados deste exercício são demograficamente catastróficos.' },
@@ -187,7 +187,7 @@ export const demographicsContent: any = {
   { type: 'paragraph', content: 'O exercício contrafactual de um cenário de "portas fechadas", baseado no modelo "Sem Migrações" do INE²³, não é um cenário de gestão controlada. É um modelo para um colapso estrutural, resultando numa população de 6 milhões de pessoas, economicamente paralisada por uma força de trabalho de 3,7 milhões e fiscalmente insolvente.' },
   { type: 'paragraph', content: 'A conclusão analítica é que a viabilidade do modelo social e económico português, perante o seu severo e incontornável processo de envelhecimento, está intrínseca e matematicamente dependente da continuidade de fluxos migratórios.' },
   
-  { type: 'title', content: 'Works Cited' },
+  { type: 'title', content: 'Trabalhos Citados' },
   { type: 'list', content: [
     '1. Nota Técnica n.º 2 - Envelhecimento Demográfico e ..., accessed on November 4, 2025, https://www.gep.mtsss.gov.pt/documents/10182/286709/CSSS_NT02.pdf/b1cf8c5f-ba74-4d25-a057-4873eeadd56d',
     '2. Projecções de População Residente Portugal e NUTS II, accessed on November 4, 2025, https://www.ine.pt/ngt_server/attachfileu.jsp?look_parentBoui=7035241&att_display=n&att_download=y',
